@@ -1,15 +1,11 @@
 import os
-import requests
+from URL_check import URL_check
 
-print("Welcome to IsItDown.py!")
-print("Please write a URL or URLS you want to check. (separated by comma)")
-
-URLS = input().split(",")
-strip_URLS = []
-for URL in URLS:
-    URL = URL.strip()
-    strip_URLS.append(URL)
-
-
-
-# os.system('clear')
+answer = "y"
+while answer is "y":
+    URL_check()
+    answer = input("do you want to play again? y/n ")
+    if answer is "n":
+        pass
+    else:
+        os.system('clear')
