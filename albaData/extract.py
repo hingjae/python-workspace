@@ -1,5 +1,4 @@
 import os
-import csv
 import requests
 from bs4 import BeautifulSoup
 
@@ -15,10 +14,11 @@ def extract():
     soup = BeautifulSoup(result.text, "html.parser")
     super_brand = soup.find("div",{"id":"MainSuperBrand"})
     brand_list = super_brand.find_all("li", {"class":"impact"}) #find_all은 list로 받는게 좋음.
+    brand_name_list = super_brand.find_all("strong").text
     count = 0
     brand_url_list = []
     for brand in brand_list:
         count = count+1
         brand_url = extract_url(brand)
         brand_url_list.append(brand_url)
-    return brand_url_list
+    return brand_url_list, brand_name_list
