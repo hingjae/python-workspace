@@ -6,6 +6,4 @@ def save_to_file(infos, file_name):
     writer = csv.writer(file)
     writer.writerow(["location","title","time","pay","reg_date"])
     for info in infos:
-        writer.writerow((info.values()))
-        
-    
+        writer.writerow(list(info.values()))
